@@ -1637,3 +1637,181 @@ body {
         justify-content: center;
     }
 }
+
+/* Адаптація секції сервісів для мобільних пристроїв */
+@media (max-width: 768px) {
+    
+    /* 1. Розширюємо сітку, щоб картки займали більше місця */
+    .services-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px; /* Відступ між картками */
+        padding: 0 10px; /* Зменшуємо бічні відступи контейнера */
+    }
+
+    /* 2. Налаштування самої картки */
+    .service-card {
+        width: 95%; /* Картка займає майже всю ширину екрану */
+        max-width: 400px; /* Але не стає занадто гігантською на великих телефонах */
+        min-height: 250px; /* Збільшуємо мінімальну висоту */
+        padding: 40px 25px; /* Збільшуємо внутрішні відступи для "повітря" */
+    }
+
+    /* 3. Збільшуємо іконки та текст для кращої читабельності */
+    .icon-box svg {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+        font-size: 1.5rem; /* Більший заголовок */
+        margin-bottom: 15px;
+    }
+
+    .service-card p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* Адаптація секції блогу для мобільних пристроїв */
+@media (max-width: 768px) {
+    
+    /* 1. Зміна контейнера карток на колонку */
+    .blog-cards-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px; /* Більший відступ для візуального розділення статей */
+        padding: 0 15px;
+    }
+
+    /* 2. Налаштування ширини картки */
+    .blog-card {
+        width: 100%;
+        max-width: 450px; /* Трохи ширше за сервіси, щоб текст виглядав краще */
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column; /* Зображення зверху, текст знизу */
+        background: rgba(255, 255, 255, 0.05); /* Легкий фон для Cyber-стилю */
+        border-radius: 15px;
+        overflow: hidden;
+    }
+
+    /* 3. Оптимізація зображень */
+    .blog-image-box {
+        width: 100%;
+        height: 200px; /* Фіксована висота для однакового вигляду на мобільних */
+    }
+
+    .blog-image-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Щоб картинка не деформувалася */
+    }
+
+    /* 4. Налаштування заголовків та тексту */
+    .blog-body {
+        padding: 20px;
+    }
+
+    .blog-body h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+        line-height: 1.4;
+    }
+
+    .blog-body p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        line-clamp: 3; /* Обмеження опису до 3 рядків для компактності */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    /* 5. Навігаційні точки (pagination) */
+    .neon-dots {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Показуємо гамбургер */
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #c0ff00; /* Твій неон */
+        transition: 0.3s;
+    }
+
+    .menu {
+        position: fixed;
+        left: -100%; /* Ховаємо меню за лівий край */
+        top: 70px;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.95);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    }
+
+    .menu.active {
+        left: 0; /* Висуваємо меню при натисканні */
+    }
+
+    .menu li {
+        margin: 15px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Базовий стиль посилань у випадаючому меню */
+    .menu li a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        padding: 10px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Ефект при наведенні/натисканні */
+    .menu li a:hover,
+    .menu li a:active {
+        color: #c0ff00; /* Неоновий лайм */
+        text-shadow: 0 0 8px rgba(192, 255, 0, 0.6);
+    }
+
+    /* Та сама лінія знизу (як на Portfolio у тебе на фото) */
+    .menu li a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: #c0ff00;
+        box-shadow: 0 0 10px #c0ff00, 0 0 20px #c0ff00;
+        transition: width 0.3s ease;
+    }
+
+    /* Поява лінії */
+    .menu li a:hover::after,
+    .menu li a:active::after {
+        width: 100%;
+    }
+}
