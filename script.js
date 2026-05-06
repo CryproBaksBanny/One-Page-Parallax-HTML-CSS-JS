@@ -163,11 +163,22 @@ function showPage(pageNumber) {
     }
 }
 
-const hamburger = document.querySelector('.hamburger');
-const menu = document.querySelector('.menu');
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const menu = document.querySelector('.menu');
 
-hamburger.addEventListener('click', () => {
-    menu.classList.toggle('active');
-    // Опціонально: анімація самого гамбургера
-    hamburger.classList.toggle('is-active');
+    hamburger.addEventListener('click', () => {
+        // Додаємо або забираємо клас 'active' у меню
+        menu.classList.toggle('active');
+        
+        // Опціонально: анімація іконки гамбургера (перетворення на Х)
+        hamburger.classList.toggle('is-active');
+    });
+
+    // Закриваємо меню при натисканні на будь-яке посилання
+    document.querySelectorAll('.menu li a').forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove('active');
+        });
+    });
 });
