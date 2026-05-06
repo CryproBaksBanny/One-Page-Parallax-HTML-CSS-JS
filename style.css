@@ -1771,6 +1771,23 @@ body {
 }
 
 @media (max-width: 768px) {
+
+    .header {
+        position: fixed; /* Зафіксувати шапку зверху */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px; /* Встановіть фіксовану висоту шапки */
+        z-index: 1000; /* Найвищий індекс */
+        display: flex;
+        align-items: center;
+        background: #000; /* Додайте чорний фон для шапки, щоб вона не була прозорою */
+    }
+
+    header, .header {
+    overflow: visible !important; /* Дозволяємо контенту виходити за межі */
+}
+
     /* 1. Виправляємо шапку, щоб вона не вилазила за межі */
     header, .nav-container {
         width: 100%;
@@ -1788,10 +1805,12 @@ body {
         align-items: center;
         cursor: pointer;
         gap: 5px;
-        z-index: 1002; /* Щоб кнопка була над меню */
+        z-index: 9999 !important; /* Щоб кнопка була над меню */
         margin-right: 0;
         width: 30px;
-        height: 30px; /* Прибираємо можливі зовнішні відступи */
+        height: 30px; 
+        position: relative;
+        cursor: pointer;/* Прибираємо можливі зовнішні відступи */
     }
 
     .hamburger span {
@@ -1803,27 +1822,42 @@ body {
         box-shadow: 0 0 8px rgba(192, 255, 0, 0.4); /* Cyber-vibe підсвітка */
     }
 
+@media (max-width: 768px) {
     .menu {
         display: flex;
         position: fixed;
-        right: -100%; /* Краще ховати вправо, якщо гамбургер справа */
-        left: auto;   /* Скасовуємо left: -100% */
-        top: 0;       /* Починаємо від самого верху */
-        height: 100vh; /* Меню на всю висоту екрана */
+        right: -250px;       /* Ховаємо за межі (ширина меню) */
+        top: 70px;           /* Починається під хедером */
+        width: 250px;        /* Фіксована ширина замість 100% */
+        height: auto;        /* Висота підлаштовується під контент */
+        max-height: 600px;   /* Обмежуємо максимальну висоту */
+        
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(15px);
+        border-left: 2px solid #c0ff00; /* Неонова лінія збоку */
+        border-bottom: 2px solid #c0ff00;
+        
         flex-direction: column;
-        justify-content: center; /* Центруємо пункти вертикально */
-        background: rgba(10, 10, 10, 0.98); /* Темніший фон для стилю PULSE */
-        backdrop-filter: blur(10px); /* Скломорфізм */
-        width: 100%;
-        text-align: center;
-        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        justify-content: flex-start;
+        padding-top: 30px;
+        transition: 0.4s ease-in-out;
         z-index: 1001;
+        border-bottom-left-radius: 15px;
+        gap: 20px; /* Заокруглення для "Cyber-Vibe" */
+        align-items: center;    /* Вирівнює li по центру по горизонталі */
+        text-align: center;
     }
 
     .menu.active {
-        right: 0; /* Виїжджає плавно */
+        right: 0;            /* Виїжджає тільки на 250px */
     }
-}
+
+   .menu li {
+        width: 100%;            /* li займає всю ширину панелі */
+        list-style: none;
+        margin: 5px 0;
+    }
+}    
 
 @media (max-width: 768px) {
     /* Базовий стиль посилань у випадаючому меню */
@@ -1863,6 +1897,7 @@ body {
     /* Поява лінії */
     .menu li a:hover::after,
     .menu li a:active::after {
-        width: 100%;
+    width: 100%; 
     }
+} 
 }
