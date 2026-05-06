@@ -162,3 +162,11 @@ function showPage(pageNumber) {
         dots[pageNumber - 1].classList.add('active');
     }
 }
+
+const hamburger = document.getElementById('hamburger');
+const menu = document.querySelector('.menu');
+
+hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    hamburger.classList.toggle('toggle');
+});
