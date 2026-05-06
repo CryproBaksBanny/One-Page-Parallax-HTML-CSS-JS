@@ -1782,12 +1782,16 @@ body {
     }
 
     .hamburger {
-        position: relative;
+        display: flex;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         cursor: pointer;
         gap: 5px;
         z-index: 1002; /* Щоб кнопка була над меню */
-        margin-right: 0; /* Прибираємо можливі зовнішні відступи */
+        margin-right: 0;
+        width: 30px;
+        height: 30px; /* Прибираємо можливі зовнішні відступи */
     }
 
     .hamburger span {
@@ -1800,6 +1804,7 @@ body {
     }
 
     .menu {
+        display: flex;
         position: fixed;
         right: -100%; /* Краще ховати вправо, якщо гамбургер справа */
         left: auto;   /* Скасовуємо left: -100% */
@@ -1823,6 +1828,8 @@ body {
 @media (max-width: 768px) {
     /* Базовий стиль посилань у випадаючому меню */
     .menu li a {
+        list-style: none;
+        margin: 20px 0;
         color: #ffffff;
         text-decoration: none;
         font-weight: 600;
