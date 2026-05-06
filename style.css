@@ -1782,7 +1782,7 @@ body {
     }
 
     .hamburger {
-        display: flex;
+        position: relative;
         flex-direction: column;
         cursor: pointer;
         gap: 5px;
