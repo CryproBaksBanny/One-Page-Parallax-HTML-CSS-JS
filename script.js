@@ -182,3 +182,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Знаходимо всі посилання всередині мобільного меню
+const menuLinks = document.querySelectorAll('.menu li a');
+const menu = document.querySelector('.menu');
+const hamburger = document.querySelector('.hamburger'); // замініть на ваш клас іконки, якщо він інший
+
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        // Коли натискаємо на посилання — прибираємо клас active
+        menu.classList.remove('active');
+        
+        // Також, якщо у вас анімується іконка "гамбургер" (перетворюється на хрестик), 
+        // їй теж треба повернути початковий стан
+        if (hamburger) {
+            hamburger.classList.remove('active');
+        }
+    });
+});
