@@ -163,10 +163,11 @@ function showPage(pageNumber) {
     }
 }
 
-const hamburger = document.getElementById('hamburger');
+const hamburger = document.querySelector('.hamburger');
 const menu = document.querySelector('.menu');
 
 hamburger.addEventListener('click', () => {
     menu.classList.toggle('active');
-    hamburger.classList.toggle('toggle');
+    // Опціонально: анімація самого гамбургера
+    hamburger.classList.toggle('is-active');
 });
