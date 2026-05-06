@@ -1900,4 +1900,15 @@ body {
     width: 100%; 
     }
 } 
+
+@media (max-width: 480px) {
+    .filter-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Кнопки стають у дві колонки */
+    }
+    
+    .portfolio-container {
+        padding: 0 15px;
+    }
+}
 }
